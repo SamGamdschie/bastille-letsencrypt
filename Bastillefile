@@ -1,0 +1,4 @@
+PKG acme.sh
+
+MOUNT /usr/ports usr/ports nullfs ro 0 0
+MOUNT /werzel/certificates var/db/acme/certs nullfs rw 0 0
