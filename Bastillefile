@@ -7,4 +7,4 @@ MOUNT /werzel/certificates var/db/acme/certs nullfs rw 0 0
 MOUNT /werzel/server_config/acme.sh usr/local/etc/git_config/acme.sh nullfs ro 0 0
 
 CMD rm -f /var/db/acme/.acme.sh/account.conf
-CMD ln -s /var/db/acme/.acme.sh/account.conf /usr/local/etc/git_config/acme.sh/account.conf
+CMD ln -s /usr/local/etc/git_config/acme.sh/account.conf /var/db/acme/.acme.sh/account.conf
