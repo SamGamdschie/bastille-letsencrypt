@@ -1,6 +1,12 @@
 # bastille-letsencrypt
+This Bastille Template installs ACME.SH in a separate jail.
+The configuration is copied from ``/usr/local/etc/git_config/acme.sh/account.conf``.
+The certificates will be written to host system using mount:
+```sh
+MOUNT /werzel/certificates var/db/acme/certs nullfs rw 0 0
+```
 
-
+### INWX parameters
 INWX offers an xmlrpc api with your standard login credentials, set them like so:
 ```sh
 export INWX_User="yourusername"
