@@ -1,9 +1,18 @@
-PKG acme.sh
+#PKG acme.sh
+PKG py-certbot py39-pip
+CMD pip install certbot-dns-inwx
 
-CMD mkdir -p /usr/local/etc/git_config/acme.sh
+#CMD mkdir -p /usr/local/etc/git_config/acme.sh
+CMD mkdir -p /usr/local/etc/git_config/certbot
 
-MOUNT /werzel/certificates var/db/acme/certs nullfs rw 0 0
-MOUNT /werzel/server_config/acme.sh usr/local/etc/git_config/acme.sh nullfs ro 0 0
+MOUNT /werzel/certificates/live usr/local/etc/letsencrypt/live nullfs rw 0 0
+MOUNT /werzel/certificates/archive usr/local/etc/letsencrypt/archive nullfs rw 0 0
+#MOUNT /werzel/server_config/acme.sh usr/local/etc/git_config/acme.sh nullfs ro 0 0
+MOUNT /werzel/server_config/certbot usr/local/etc/git_config/certbot nullfs ro 0 0
 
-CMD rm -f /var/db/acme/.acme.sh/account.conf
-CMD cp -a /usr/local/etc/git_config/acme.sh/account.conf /var/db/acme/.acme.sh/account.conf
+#CMD rm -f /var/db/acme/.acme.sh/account.conf
+#CMD cp -a /usr/local/etc/git_config/acme.sh/account.conf /var/db/acme/.acme.sh/account.conf
+CMD cp -a /usr/local/etc/git_config/certbot/inwx.cfg /usr/local/etc/letsencrypt/inwx.cfg
+
+##
+CMD echo "weekly_certbot_enable=YES" >> /etc/periodic.conf

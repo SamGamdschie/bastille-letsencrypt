@@ -23,3 +23,14 @@ If your account is secured by mobile tan you have also defined the shared secret
 export INWX_Shared_Secret="shared secret"
 ```
 You may need to re-enable the mobile tan to gain the shared secret.
+
+#### Bla
+In order to automatically renew the certificates, add this line to
+/etc/periodic.conf:
+
+    weekly_certbot_enable="YES"
+
+
+    certbot certonly --standalone -d
+
+    certbot certonly -a dns-inwx -d sub.domain.tld -d *.wildcard.tld
