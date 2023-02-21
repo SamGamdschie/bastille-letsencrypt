@@ -13,6 +13,7 @@ MOUNT /werzel/server_config/certbot usr/local/etc/git_config/certbot nullfs ro 0
 #CMD rm -f /var/db/acme/.acme.sh/account.conf
 #CMD cp -a /usr/local/etc/git_config/acme.sh/account.conf /var/db/acme/.acme.sh/account.conf
 CMD cp -a /usr/local/etc/git_config/certbot/inwx.cfg /usr/local/etc/letsencrypt/inwx.cfg
+CMD chmod 600 /usr/local/etc/letsencrypt/inwx.cfg
 
-##
+## Periodic Update of Certificates
 CMD echo "weekly_certbot_enable=YES" >> /etc/periodic.conf
