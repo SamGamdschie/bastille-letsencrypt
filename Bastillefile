@@ -1,5 +1,5 @@
 #PKG acme.sh
-PKG py-certbot py39-pip
+PKG py39-certbot py39-pip
 CMD pip install certbot-dns-inwx
 
 #CMD mkdir -p /usr/local/etc/git_config/acme.sh
